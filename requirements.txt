@@ -1,0 +1,5 @@
+torch
+torchvision
+numpy
+pillow
+# for the notebooks: transformers==5.17.0 ultralytics==8.4.172 pycocotools pandas matplotlib

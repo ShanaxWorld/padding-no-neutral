@@ -1,0 +1,64 @@
+{
+  "env": {
+    "run_utc": "2026-10-04T16:25:26+00:00",
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "torchvision": "0.25.0+cu128",
+    "transformers": "5.17.0",
+    "gpu": "Tesla T4"
+  },
+  "config": {
+    "seed": 0,
+    "batch_size": 8,
+    "voc_models": [
+      "yolo11m",
+      "detr_r50",
+      "frcnn_v2",
+      "rtdetr_r50",
+      "retinanet_v2"
+    ],
+    "yolo_models": [
+      "yolo11s",
+      "yolo11m",
+      "yolo26s",
+      "yolo26m"
+    ],
+    "val_models": [
+      "yolo11m",
+      "yolo26m"
+    ],
+    "val_batches": [
+      1,
+      8,
+      32
+    ],
+    "yolo_imgsz": 640,
+    "yolo_conf": 0.001,
+    "yolo_iou": 0.7,
+    "voc_url": "https://github.com/ultralytics/assets/releases/download/v0.0.0/VOCtest_06-Nov-2007.zip",
+    "micro_batch": {
+      "deformable_detr": 2,
+      "grounding_dino_tiny": 2,
+      "yolos_small": 4
+    },
+    "flip_thr_per_model": {},
+    "flip_score_thr": 0.5,
+    "flip_iou": 0.9,
+    "coco_root": "/kaggle/input",
+    "coco_download_dir": "/kaggle/working/coco",
+    "claims": {
+      "S1_normal": 0.1,
+      "S1_ctrl": 0.005,
+      "S1_fix": 0.005,
+      "S1_dap": 0.05,
+      "S2_normal": 0.05,
+      "S2_exact": 0.005
+    }
+  },
+  "verdicts": {
+    "S1_second_dataset": "\u2713  normal detr_r50 39.3%, frcnn_v2 36.0%, retinanet_v2 26.3% | control 0.00% | self detr_r50 0.02%, frcnn_v2 0.00%, retinanet_v2 0.00% | buckets detr_r50 0.00%, frcnn_v2 0.00%, retinanet_v2 0.00%",
+    "S1_yolo_on_voc": "YOLO11m: 24.9% changed, buckets 0.00%",
+    "S2_production_yolo": "\u2713  default batched yolo11s 29.2%, yolo11m 25.3%, yolo26s 27.8%, yolo26m 26.4% | buckets yolo11s 0.00%, yolo11m 0.00%, yolo26s 0.00%, yolo26m 0.00% | square b8 vs b1 yolo11m 0.00%, yolo11s 0.00%, yolo26m 0.00%, yolo26s 0.00%",
+    "S3_official_validator": "mAP50-95 by batch size: yolo11m: b1=0.000, b8=0.000, b32=0.000; yolo26m: b1=0.000, b8=0.000, b32=0.000"
+  }
+}

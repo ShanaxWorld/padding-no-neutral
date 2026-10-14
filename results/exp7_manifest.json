@@ -1,0 +1,58 @@
+{
+  "env": {
+    "run_utc": "2026-10-04T22:26:51+00:00",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "5.17.0",
+    "gpu": "Tesla T4"
+  },
+  "config": {
+    "seed": 0,
+    "batch_size": 8,
+    "sweep_models": [
+      "detr_r50",
+      "frcnn_v2",
+      "yolo11m"
+    ],
+    "sweep_batches": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "n_sweep": 1000,
+    "pose_model": "keypointrcnn",
+    "pose_change": 0.05,
+    "yolo_imgsz": 640,
+    "yolo_conf": 0.001,
+    "yolo_iou": 0.7,
+    "micro_batch": {},
+    "flip_thr_per_model": {},
+    "flip_score_thr": 0.5,
+    "flip_iou": 0.9,
+    "coco_root": "/kaggle/input",
+    "coco_download_dir": "/kaggle/working/coco",
+    "cpu_models": [
+      "detr_r50",
+      "frcnn_v2",
+      "yolo11m"
+    ],
+    "n_cpu": 200,
+    "claims": {
+      "R1_band": 0.1,
+      "R1_fix": 0.005,
+      "R2_normal": 0.1,
+      "R2_fix": 0.005,
+      "R2_dap": 0.05,
+      "R3_tol": 0.05,
+      "R3_fix": 0.005
+    }
+  },
+  "verdicts": {
+    "R1_batch_size": "\u2713  detr_r50: b2 26.0%, b4 39.6%, b8 46.0%, b16 47.9%, b32 48.0%; among padded 38.9-48.0%; fix@32 0.00% | frcnn_v2: b2 18.2%, b4 30.2%, b8 38.2%, b16 41.4%, b32 42.1%; among padded 29.0-42.1%; fix@32 0.00% | yolo11m: b2 24.3%, b4 26.6%, b8 26.6%, b16 26.6%, b32 26.6%; among padded 26.4-26.6%",
+    "R2_pose": "\u2713  normal: 12.3% images / 17.8% poses changed, \u0394kp-AP +0.09 | fix: 0.00% poses, \u0394kp-AP +0.000",
+    "R3_hardware": "\u2713  detr_r50: T4 47.5% vs CPU 47.5%, fix \u2264 0.00%, batch-1 T4-vs-CPU 0.0% | frcnn_v2: T4 35.0% vs CPU 35.0%, fix \u2264 0.00%, batch-1 T4-vs-CPU 0.0% | yolo11m: T4 29.5% vs CPU 29.5%, batch-1 T4-vs-CPU 0.0%"
+  }
+}

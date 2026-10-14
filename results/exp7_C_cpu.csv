@@ -1,0 +1,14 @@
+device,model,variant,batching,images_changed
+cuda,detr_r50,none,bs8_rand,0.475
+cuda,detr_r50,self,bs8_rand,0.0
+cuda,frcnn_v2,none,bs8_rand,0.35
+cuda,frcnn_v2,self,bs8_rand,0.0
+cuda,yolo11m,none,bs8_rand,0.295
+cpu,detr_r50,none,bs8_rand,0.475
+cpu,detr_r50,self,bs8_rand,0.0
+cpu,frcnn_v2,none,bs8_rand,0.35
+cpu,frcnn_v2,self,bs8_rand,0.0
+cpu,yolo11m,none,bs8_rand,0.295
+cpu vs cuda,detr_r50,none,bs1,0.0
+cpu vs cuda,frcnn_v2,none,bs1,0.0
+cpu vs cuda,yolo11m,none,bs1,0.0
